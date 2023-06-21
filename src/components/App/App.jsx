@@ -18,28 +18,28 @@ export const App = () => {
 
   const onLeaveFeedback = event => {
     // Простий варіант, масштабується, але на нього свариться WebPack
-    const feedbackToUpdate = event.target.innerText;
-    eval(`set${feedbackToUpdate}`)(feedback => feedback + 1);
+    // const feedbackToUpdate = event.target.innerText;
+    // eval(`set${feedbackToUpdate}`)(feedback => feedback + 1);
 
     // Складний варіант, який не масштабується
 
-//     const feedbackToUpdate = event.target.innerText.toLowerCase();
+    const feedbackToUpdate = event.target.innerText.toLowerCase();
 
-//     switch (feedbackToUpdate) {
-//       case 'good':
-//         setGood(prevState => prevState + 1);
-//         break;
-//       case 'neutral':
-//         setNeutral(prevState => prevState + 1);
-//         break;
-//       case 'bad':
-//         setBad(prevState => prevState + 1);
-//         break;
+    switch (feedbackToUpdate) {
+      case 'good':
+        setGood(prevState => prevState + 1);
+        break;
+      case 'neutral':
+        setNeutral(prevState => prevState + 1);
+        break;
+      case 'bad':
+        setBad(prevState => prevState + 1);
+        break;
 
-//       default:
-//         new Error(console.error());
-//         break;
-//     }
+      default:
+        new Error(console.error());
+        break;
+    }
   };
 
   const countTotalFeedback = () => {
